@@ -12,7 +12,6 @@
         </view>
         <button bindtap="clearInputEvent" class="mybtn" type="warn">清空内容</button>
         <button formType="submit" class="mybtn" type="primary">生成二维码</button>
-        
 
         <view class="img-box">
         <canvas bindtap="previewImg" hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>

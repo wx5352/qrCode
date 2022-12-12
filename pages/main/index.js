@@ -68,7 +68,7 @@ Page({
       canvasId: 'mycanvas',
       success: function (res) {
           var tempFilePath = res.tempFilePath;
-          console.log(tempFilePath);
+          console.log("tempFilePath:"+tempFilePath);
           that.setData({
               imagePath:tempFilePath,
           });
@@ -80,7 +80,9 @@ Page({
   },
   //点击图片进行预览，长按保存分享图片
   previewImg:function(e){
+    
     var img = this.data.imagePath
+    console.info('previewImg:'+this.data.imagePath)
     wx.previewImage({
       current: img, // 当前显示图片的http链接
       urls: [img] // 需要预览的图片http链接列表
