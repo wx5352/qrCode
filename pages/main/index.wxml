@@ -1,0 +1,30 @@
+<!--pages/main/index.wxml-->
+<view class="container-box">
+ 
+    <form bindsubmit="formSubmit">
+        <view class="input-row">
+            <radio-group name= "radType" bindchange="handleChange">
+                <radio value="0" checked="0" >文本</radio>
+                <radio value="1">网址</radio>
+            </radio-group>
+            <!-- <label>网址</label> -->
+            <input name='url' value='{{inputVal}}' type="text" maxlength="255" placeholder="{{placeholder}}"/>
+        </view>
+        <button bindtap="clearInputEvent" class="mybtn" type="warn">清空内容</button>
+        <button formType="submit" class="mybtn" type="primary">生成二维码</button>
+        
+
+        <view class="img-box">
+        <canvas bindtap="previewImg" hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+        <view class='common-page-list-left'><text>(双击图片保存到相册)</text></view>
+        
+        
+    </view>
+        
+        
+    </form>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+    
+</view>
