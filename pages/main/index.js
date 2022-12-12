@@ -91,15 +91,37 @@ Page({
     'inputVal': ''
     })
   },
+  toUtf8: function(str) {
+    var out,//输出
+       i,//字符索引
+        len,//长度
+         c;//charCodeAt 编码后的字符
+    out = "";
+    len = str.length;
+    for(i = 0; i < len; i++) {
+      c = str.charCodeAt(i);
+      if((c >= 0x0001) && (c <= 0x007F)) {
+        out += str.charAt(i);
+      } else if(c > 0x07FF) {
+        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+      } else {
+        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+      }
+    }
+    return out;
+  },
+  
   formSubmit: function(e) {
     var that = this;
-    console.info('1111111:'+e.detail.value.radType)
     
     var url = e.detail.value.url;
     if(e.detail.value.radType ==1){
       url = url==''?('http://'+that.data.placeholder):('http://'+url);
     }
-    
+    url = this.toUtf8(url)
     that.setData({
       maskHidden:false,
     });
