@@ -25,7 +25,6 @@
 
  **微信扫码查看**（或微信搜索：卡卡二维码） ：
 
-![输入图片说明](%E5%B0%8F%E7%A8%8B%E5%BA%8F.jpg)
 ![小程序](https://user-images.githubusercontent.com/42396365/207815372-805f0920-4b3c-4243-98f9-02691a1098bb.jpg)
 
 
