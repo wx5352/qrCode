@@ -4,6 +4,7 @@
 .img-box image{width: 686rpx;height: 686rpx;background-color: #f9f9f9}
 .input-row{
     margin: 30rpx auto;
+    margin-bottom: 0;
     border-bottom: 1rpx solid #e5e5e5;
     border-top: 1rpx solid #e5e5e5;
     display: flex;
@@ -14,7 +15,19 @@
     font-size: 34rpx;
     color: #000
 }
-
+.tips{
+  color: rgb(218, 9, 9);
+  font-size: 33rpx;
+  text-align: end;
+  padding-right: 20%;
+}
 .input-row input{margin-left: 100rpx;flex: 1}
 .mybtn{width:686rpx;margin: 60rpx auto }
 .mask{position: fixed;top: 0;left: 0;z-index: 3; width: 100%;height: 100%;opacity: 0;}
+.button-box{
+  margin-top: 30rpx;
+    display: flex;
+}
+.button-box button{
+    margin: 0 10rpx;
+}

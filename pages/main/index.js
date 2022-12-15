@@ -10,7 +10,8 @@ Page({
     maskHidden:true,
     imagePath:'',
     inputVal: '',
-    placeholder:'请输入内容'
+    placeholder:'请输入内容',
+    showTips:false
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -80,7 +81,6 @@ Page({
   },
   //点击图片进行预览，长按保存分享图片
   previewImg:function(e){
-    
     var img = this.data.imagePath
     console.info('previewImg:'+this.data.imagePath)
     wx.previewImage({
@@ -115,10 +115,25 @@ Page({
     }
     return out;
   },
-  
+   /**
+   * 表单双向数据绑定
+   */
+  bindKeyInput: function (e) {
+    this.setData({
+      inputVal: e.detail.value.trim()
+    })
+  },
   formSubmit: function(e) {
+    if(!this.data.inputVal){
+      this.setData({
+        showTips:true
+      })
+      return
+    }else{
+      this.setData({
+        showTips:false
+      })
     var that = this;
-    
     var url = e.detail.value.url;
     if(e.detail.value.radType ==1){
       url = url==''?('http://'+that.data.placeholder):('http://'+url);
@@ -142,7 +157,28 @@ Page({
       });
       clearTimeout(st);
     },2000)
-    
   }
+
+  },
+   // 保存图片
+   saveImg(){
+    wx.canvasToTempFilePath({
+      destWidth: '686rpx',
+      destHeight:'686rpx',
+      canvasId: 'mycanvas',
+      success(res) {
+        wx.saveImageToPhotosAlbum({
+          filePath:res.tempFilePath,
+          success(res) {
+            wx.showToast({
+              title: '保存成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        })
+      }
+    })
+  },
 
 })

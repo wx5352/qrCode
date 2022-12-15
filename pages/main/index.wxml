@@ -1,6 +1,5 @@
 <!--pages/main/index.wxml-->
 <view class="container-box">
- 
     <form bindsubmit="formSubmit">
         <view class="input-row">
             <radio-group name= "radType" bindchange="handleChange">
@@ -8,18 +7,19 @@
                 <radio value="1">网址</radio>
             </radio-group>
             <!-- <label>网址</label> -->
-            <input name='url' value='{{inputVal}}' type="text" maxlength="255" placeholder="{{placeholder}}"/>
+            <input name='url' value='{{inputVal}}' bindinput="bindKeyInput" type="text" maxlength="255" placeholder="{{placeholder}}"/>
         </view>
-        <button bindtap="clearInputEvent" class="mybtn" type="warn">清空内容</button>
+        <view wx:if="{{showTips}}" class="tips">内容不能为空</view>
+        <view class="button-box">
+            <button bindtap="clearInputEvent" class="mybtn" type="warn">清空内容</button>
         <button formType="submit" class="mybtn" type="primary">生成二维码</button>
+        </view>
 
         <view class="img-box">
         <canvas bindtap="previewImg" hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
-        <view class='common-page-list-left'><text>(双击图片保存到相册)</text></view>
-        
-        
+        <!-- <view class='common-page-list-left'><text>(双击图片保存到相册)</text></view> -->
     </view>
-        
+    <button class="left" bindtap="saveImg">保存图片</button>
         
     </form>
 </view>
