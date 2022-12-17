@@ -24,8 +24,7 @@
 
 
  **微信扫码查看**：
-
-![小程序](https://user-images.githubusercontent.com/42396365/207815372-805f0920-4b3c-4243-98f9-02691a1098bb.jpg)
+![gh_5ea8ac739588_258-2](https://user-images.githubusercontent.com/42396365/208229217-f32b8129-086b-4374-8e3b-c35fa7f3e898.jpg)
 
 
 
